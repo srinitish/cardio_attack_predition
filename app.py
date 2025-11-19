@@ -41,5 +41,7 @@ sysBP, diaBP, BMI, heartRate, glucose]])
             scaler = scale.transform(input_data)
             kbest_f=kbest.transform(scaler)
             prediction = model.predict(kbest_f)
-            
-            st.success(f"Prediction: {prediction[0]}")
+            if(prediction[0]==1):
+                st.success(f"Prediction: Positive")
+            else:
+                st.success(f"Prediction: Negative")
